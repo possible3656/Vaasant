@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.winbee.vaasant">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:usesCleartextTraffic="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ViewResultActivity"/>
+        <activity android:name=".InstructionsActivity"/>
+        <activity android:name=".OnlineQuestionActivity"/>
+        <activity android:name=".AskedNewQuestionActivity"/>
+        <activity android:name=".AskedQuestionActivity"/>
+        <activity android:name=".AskedSolutionActivity"/>
+        <activity android:name=".MyCourseSubjectActivity"
+            android:label="Subject"
+            android:parentActivityName=".Ui.Home"/>
+        <activity android:name=".DriveVideoPlayerActivity"/>
+        <activity android:name=".GecSemesterTopicActivity"/>
+        <activity android:name=".WebActivity"/>
+        <activity android:name=".GecYouTubeActivity"/>
+        <activity android:name=".Login"/>
+        <activity android:name=".SignUp"/>
+        <activity android:name=".Ui.Home"/>
+        <activity android:name=".OtpVerficationActivity"/>
+        <activity android:name=".ForgotPassword"/>
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

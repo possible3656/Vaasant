@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ui.HomeworkDiscriptionFragment">
+
+    <TextView
+        android:id="@+id/titleHomeworkDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Make This Layout Fast"
+        android:textColor="@android:color/holo_purple"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/subjectHomeworkDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleHomeworkDescription"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Mordern Ui"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/dateHomeworkDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/subjectHomeworkDescription"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="28 June"
+        android:textSize="18sp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dateHomeworkDescription"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardMaxElevation="3dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:id="@+id/attachmentLayoutHomeworkDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp">
+
+            <TextView
+                android:id="@+id/attachmenttxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Attachments"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/attachmentImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/attachmenttxt"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_attachment_black_24dp" />
+
+            <TextView
+                android:id="@+id/attachmentTitleHomeworkDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/attachmenttxt"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toEndOf="@id/attachmentImage"
+                android:layout_toRightOf="@id/attachmentImage"
+                android:maxLength="50"
+                android:text="Make This Layout fast"
+                android:textSize="16sp"
+
+                />
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@id/submit_areaHomework"
+        android:background="@android:color/darker_gray"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/submit_areaHomework"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Work"
+            android:layout_marginTop="10dp"
+            android:textSize="26sp"
+            android:id="@+id/yourWorktext"
+            />
+
+        <TextView
+            android:id="@+id/doneOrNotHomeworkDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Assigned"
+            android:textSize="18sp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true" />
+
+        <Button
+            android:id="@+id/buttonAttachmentHomeworkDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/yourWorktext"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="20dp"
+            android:text="Add attachment"
+            android:drawableStart="@drawable/ic_add_black_24dp"
+            android:textColor="@android:color/holo_purple"
+            android:textStyle="bold"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:layout_marginBottom="5dp"
+            android:drawableLeft="@drawable/ic_add_black_24dp" />
+
+
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

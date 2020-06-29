@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ui.MyProfileFragment"
+    android:clickable="true"
+    android:focusable="true"
+    >
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewOne"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardMaxElevation="5dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/classDetailImageMyProfile"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/student"
+                />
+
+
+            <TextView
+                android:id="@+id/textClassMyProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text="Student Details"
+                android:layout_toEndOf="@id/classDetailImageMyProfile"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/classDetailImageMyProfile" />
+
+
+            <TextView
+                android:id="@+id/studentNameMyProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_toEndOf="@id/classDetailImageMyProfile"
+                android:layout_marginStart="20dp"
+                android:layout_below="@id/textClassMyProfile"
+                android:text="Name : Sambhav Jain"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/classDetailImageMyProfile"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/rollNumberMyProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_toEndOf="@id/classDetailImageMyProfile"
+                android:layout_marginStart="20dp"
+                android:layout_below="@id/studentNameMyProfile"
+                android:text="Roll No. : 18/307"
+                android:textColor="@android:color/black"
+                android:layout_toRightOf="@id/classDetailImageMyProfile"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/phoneNumberMyProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_toEndOf="@id/classDetailImageMyProfile"
+                android:layout_marginStart="20dp"
+                android:layout_below="@id/rollNumberMyProfile"
+                android:text="Phone No. : 8209065307"
+                android:textColor="@android:color/black"
+                android:layout_toRightOf="@id/classDetailImageMyProfile"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/classMyProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_toEndOf="@id/classDetailImageMyProfile"
+                android:layout_marginStart="20dp"
+                android:layout_below="@id/phoneNumberMyProfile"
+                android:text="Class : 7th Standard"
+                android:textColor="@android:color/black"
+                android:layout_toRightOf="@id/classDetailImageMyProfile"
+                android:layout_marginLeft="20dp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardViewOne"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardMaxElevation="5dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imagementorMyProfile"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/mentor"
+android:layout_marginTop="5dp"
+
+                android:layout_marginLeft="10dp" />
+
+
+            <TextView
+                android:id="@+id/textMentorMyProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@id/imagementorMyProfile"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text="Class Teacher [Mentor]"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/imagementorMyProfile" />
+
+            <TextView
+                android:id="@+id/mentorNameMyProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textMentorMyProfile"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_toEndOf="@id/imagementorMyProfile"
+                android:textStyle="bold"
+                android:fontFamily="@font/nunito_extrabold"
+                android:layout_marginTop="5dp"
+                android:text="Principal"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/imagementorMyProfile" />
+
+            <TextView
+                android:id="@+id/mentorPhoneNumberNameMyProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/imagementorMyProfile"
+                android:layout_below="@id/mentorNameMyProfile"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text="7014992366"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/imagementorMyProfile" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mentorPhoneNumberNameMyProfile"
+                android:layout_toEndOf="@id/imagementorMyProfile"
+                android:layout_toRightOf="@id/imagementorMyProfile">
+
+                <ImageView
+                    android:id="@+id/callImageMyprofile"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/ic_baseline_call_24"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_alignParentLeft="true" />
+                <ImageView
+                    android:id="@+id/messageImageMyProfile"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_mail_outline_24"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="50dp" />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#EBAD60</color>
+    <color name="colorPrimaryDark">#CC8F42</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="homeCOlor">#f98745</color>
+    <color name="bg_color">#F0F6FC</color>
+    <color name="edit_text">#111</color>
+    <color name="white">#ffffff</color>
+    <color name="gradientViolet">#EEA64C</color>
+    <color name="gradientLightBlue">#C07F2C</color>
+    <color name="black">#000000</color>
+    <color name="colorRed">#D81B60</color>
+    <color name="grey_light">#E0E0E0</color>
+    <color name="placeHolderBG">#dddddd</color>
+    <color name="grey">#9096A3</color>
+
+
+</resources>
