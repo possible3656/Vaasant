@@ -117,38 +117,19 @@ public class HomeworkFragment extends Fragment implements HomeworkAdapter.OnHOme
             fragmentTransaction = getFragmentManager()
                     .beginTransaction()
                     .replace(R.id.homeFrame,homeworkDiscriptionFragment,"HomeworkDiscriptionFragment");
+
+            Bundle bundleHomework= new Bundle();
+            bundleHomework.putString("title",list.get(position).getTopic());
+            bundleHomework.putString("subject",list.get(position).getSubject());
+            bundleHomework.putString("date",list.get(position).getStart_date());
+            bundleHomework.putString("pdfUrl",list.get(position).getContent_name());
+            homeworkDiscriptionFragment.setArguments(bundleHomework);
+
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
         }
 
-        Bundle bundleHomework= new Bundle();
-        bundleHomework.putString("title",list.get(position).getTopic());
-        bundleHomework.putString("subject",list.get(position).getSubject());
-        bundleHomework.putString("date",list.get(position).getStart_date());
-        bundleHomework.putString("pdfUrl",list.get(position).getContent_name());
-        homeworkDiscriptionFragment.setArguments(bundleHomework);
-
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
     }
 
 
-//    @Override
-//    public void onHomeworkClicked(int position) {
-//
-//        HomeworkDiscriptionFragment homeworkDiscriptionFragment= new HomeworkDiscriptionFragment();
-//        FragmentTransaction fragmentTransaction= getChildFragmentManager()
-//                .beginTransaction()
-//                .replace(R.id.homeFrame,homeworkDiscriptionFragment,"HomeworkDiscriptionFragment");
-//
-//        Bundle bundleHomework= new Bundle();
-//        bundleHomework.putString("title",homeworkModelArrayList.get(position).getTitle());
-//        bundleHomework.putString("subject",homeworkModelArrayList.get(position).getSubject());
-//        bundleHomework.putString("date",homeworkModelArrayList.get(position).getDate());
-//        bundleHomework.putString("pdfUrl",homeworkModelArrayList.get(position).getPdfUrl());
-//
-//        homeworkDiscriptionFragment.setArguments(bundleHomework);
-//
-//        fragmentTransaction.addToBackStack(null);
-//        fragmentTransaction.commit();
-//
-//    }
 }

@@ -1,12 +1,17 @@
 package com.winbee.vaasant.Ui;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,17 +22,19 @@ import android.widget.Toast;
 
 import com.winbee.vaasant.R;
 
-public class HomeworkDiscriptionFragment extends Fragment implements bottomDialogForAttachment.BottomSheetListener {
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Objects;
 
-    TextView titleHomeworkDescription
-            ,subjectHomeworkDescription
-            ,dateHomeworkDescription
-            ,attachmentTitleHomeworkDescription
-            ,doneOrNotHomeworkDescription;
+import static android.app.Activity.RESULT_OK;
 
+public class HomeworkDiscriptionFragment extends Fragment  {
+
+    TextView titleHomeworkDescription,subjectHomeworkDescription,dateHomeworkDescription,attachmentTitleHomeworkDescription,doneOrNotHomeworkDescription;
     Button buttonAttachmentHomeworkDescription;
-
     RelativeLayout attachmentLayoutHomeworkDescription;
+    private  static final int IMG_REQUEST=777;
+    public static Bitmap bitmap;
 
 
     public HomeworkDiscriptionFragment() {
@@ -103,21 +110,74 @@ public class HomeworkDiscriptionFragment extends Fragment implements bottomDialo
                 //todo open pdf on web herTo
                 Toast.makeText(getContext()," opening pdf", Toast.LENGTH_SHORT).show();
                 Uri uri = Uri.parse(pdfUrl); // missing 'http://' will cause crashed
+                /// Add activity to open pdf  url
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }
         });
     }
 
-    @Override
+
     public void onPhotoAttachmentClicked() {
         //todo open intent for image picking
-        Toast.makeText(getContext()," on photo clicked", Toast.LENGTH_SHORT).show();
+        // Toast.makeText(getContext()," on photo clicked", Toast.LENGTH_SHORT).show();
+        selectImage();
     }
 
-    @Override
     public void onPdfAttachmentClicked() {
         //todo open image for pdf picking
         Toast.makeText(getContext()," on pdf clicked", Toast.LENGTH_SHORT).show();
     }
+    private void selectImage(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent,IMG_REQUEST);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == IMG_REQUEST && resultCode == RESULT_OK && data!=null) {
+            Uri selectedImage = data.getData();
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(Objects.requireNonNull(getContext()).getContentResolver()
+                        , selectedImage);
+
+                //image_view.setImageBitmap(bitmap);
+
+
+
+                DialogAttachment dialogAttachment = new DialogAttachment();
+                if (getFragmentManager() != null) {
+                    dialogAttachment.show(getFragmentManager(),"DialogAttachment");
+                }
+
+//                addImageButton.setVisibility(View.GONE);
+//                uploadButton.setVisibility(View.VISIBLE);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    private String imageToString()
+    {
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 40, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+
+        return Base64.encodeToString(byteArray, Base64.DEFAULT);
+    }
+
+
+    public void OnImageConfirmed(Bitmap bitmap){
+        //upload here
+
+        Toast.makeText(getActivity(), "File Selected", Toast.LENGTH_SHORT).show();
+
+    }
+
 }

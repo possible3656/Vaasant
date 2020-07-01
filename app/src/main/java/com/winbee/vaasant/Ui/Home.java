@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,13 +18,13 @@ import com.winbee.vaasant.Utils.SharedPrefManager;
 
 import java.util.Objects;
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity implements bottomDialogForAttachment.BottomSheetListener , DialogAttachment.OnConfirmClicked {
 
-    ImageView sideBar, notification , home , website, aboutUs , contactUs,logOut;
-   @SuppressLint("StaticFieldLeak")
-   static TextView titleHome;
+    ImageView sideBar, notification, home, website, aboutUs, contactUs, logOut;
+    @SuppressLint("StaticFieldLeak")
+    static TextView titleHome;
 
-
+    HomeworkDiscriptionFragment homeworkDiscriptionFragment;
 
 
     @Override
@@ -31,14 +32,17 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        sideBar=findViewById(R.id.sideBarHome);
-        notification=findViewById(R.id.notificationHome);
-        home=findViewById(R.id.homeHome);
-        website=findViewById(R.id.WebsiteHome);
-        aboutUs=findViewById(R.id.aboutUsHome);
-        contactUs=findViewById(R.id.contactUsHome);
-        logOut=findViewById(R.id.logOutHome);
-        titleHome=findViewById(R.id.titleHome);
+        sideBar = findViewById(R.id.sideBarHome);
+        notification = findViewById(R.id.notificationHome);
+        home = findViewById(R.id.homeHome);
+        website = findViewById(R.id.WebsiteHome);
+        aboutUs = findViewById(R.id.aboutUsHome);
+        contactUs = findViewById(R.id.contactUsHome);
+        logOut = findViewById(R.id.logOutHome);
+        titleHome = findViewById(R.id.titleHome);
+
+
+
 
         titleHome.setText("HOME");
 
@@ -112,10 +116,10 @@ public class Home extends AppCompatActivity {
     }
 
     private void onNotificationPressed() {
-       // Toast.makeText(this, "Notification Pressed", Toast.LENGTH_SHORT).show();
-        NotificationFragment notificationFragment= new NotificationFragment();
+        // Toast.makeText(this, "Notification Pressed", Toast.LENGTH_SHORT).show();
+        NotificationFragment notificationFragment = new NotificationFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager()
-                .beginTransaction().replace(R.id.homeFrame,notificationFragment,"NotificationFragment");
+                .beginTransaction().replace(R.id.homeFrame, notificationFragment, "NotificationFragment");
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
@@ -125,19 +129,51 @@ public class Home extends AppCompatActivity {
     }
 
     private void AddingFragmentToView() {
-        HomeFragment homeFragment= new HomeFragment();
-        FragmentTransaction fragmentTransaction= getSupportFragmentManager()
-                .beginTransaction().replace(R.id.homeFrame,homeFragment,"HomeFragment");
-        fragmentTransaction.commit();}
+        HomeFragment homeFragment = new HomeFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+                .beginTransaction().replace(R.id.homeFrame, homeFragment, "HomeFragment");
+        fragmentTransaction.commit();
+    }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         Home.titleHome.setText("HOME");
     }
+
     private void logout() {
         SharedPrefManager.getInstance(this).logout();
         startActivity(new Intent(this, Login.class));
         Objects.requireNonNull(this).finish();
+    }
+
+    @Override
+    public void onPhotoAttachmentClicked() {
+        homeworkDiscriptionFragment = (HomeworkDiscriptionFragment) getSupportFragmentManager()
+                .findFragmentByTag("HomeworkDiscriptionFragment");
+        if (homeworkDiscriptionFragment != null) {
+            homeworkDiscriptionFragment.onPhotoAttachmentClicked();
+
+        }else {
+            Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onPdfAttachmentClicked() {
+        homeworkDiscriptionFragment = (HomeworkDiscriptionFragment) getSupportFragmentManager()
+                .findFragmentByTag("HomeworkDiscriptionFragment");
+        if (homeworkDiscriptionFragment != null) {
+            homeworkDiscriptionFragment.onPdfAttachmentClicked();
+        }else{Toast.makeText(this,"error",Toast.LENGTH_SHORT).show();}
+    }
+
+    @Override
+    public void onConfirmClickedPhoto(Bitmap bitmap) {
+        homeworkDiscriptionFragment = (HomeworkDiscriptionFragment) getSupportFragmentManager()
+                .findFragmentByTag("HomeworkDiscriptionFragment");
+        if (homeworkDiscriptionFragment != null) {
+            homeworkDiscriptionFragment.OnImageConfirmed(bitmap);
+        }else{Toast.makeText(this,"error",Toast.LENGTH_SHORT).show();}
     }
 }

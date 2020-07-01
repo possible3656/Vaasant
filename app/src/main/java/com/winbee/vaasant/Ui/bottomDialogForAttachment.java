@@ -28,6 +28,7 @@ public class bottomDialogForAttachment extends BottomSheetDialogFragment {
             public void onClick(View view) {
                 bottomSheetListener.onPhotoAttachmentClicked();
                 dismiss();
+
             }
         });
         addPdf.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +36,7 @@ public class bottomDialogForAttachment extends BottomSheetDialogFragment {
             public void onClick(View view) {
                 bottomSheetListener.onPdfAttachmentClicked();
                 dismiss();
+
             }
         });
 
