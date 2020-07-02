@@ -31,6 +31,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recycler_view_homework"
+        android:layout_above="@id/submittedAssignmentButton"
+        />
+    <Button
+        android:id="@+id/submittedAssignmentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Submitted Assignment"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/holo_purple"
+        android:backgroundTintMode="screen"
         />
 
 
