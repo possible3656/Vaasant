@@ -50,7 +50,7 @@
 
 
             <TextView
-                android:id="@+id/studentNameMyProfile"
+                android:id="@+id/studentNameFee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
@@ -70,7 +70,7 @@
                 android:textSize="16sp"
                 android:layout_toEndOf="@id/classDetailImageMyProfile"
                 android:layout_marginStart="20dp"
-                android:layout_below="@id/studentNameMyProfile"
+                android:layout_below="@id/studentNameFee"
                 android:text="Roll No. : 18/307"
                 android:textColor="@android:color/black"
                 android:layout_toRightOf="@id/classDetailImageMyProfile"

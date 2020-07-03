@@ -34,7 +34,7 @@ public class MyProfileFragment extends Fragment {
         Mobile = SharedPrefManager.getInstance(getActivity()).refCode().getUsername();
         Roll = SharedPrefManager.getInstance(getActivity()).refCode().getRegistration_number();
         Class = SharedPrefManager.getInstance(getActivity()).refCode().getClass_data();
-        studentName = view.findViewById(R.id.studentNameMyProfile);
+        studentName = view.findViewById(R.id.studentNameFee);
         studentName.setText(Name);
         studentRollNumber = view.findViewById(R.id.rollNumberMyProfile);
         studentRollNumber.setText(Roll);

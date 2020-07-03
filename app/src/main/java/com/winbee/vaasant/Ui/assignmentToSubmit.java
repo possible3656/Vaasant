@@ -3,6 +3,7 @@ package com.winbee.vaasant.Ui;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,15 @@ public class assignmentToSubmit extends Fragment {
         btm_asked_question.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SubmitAssignment submitAssignment = new SubmitAssignment();
+                FragmentTransaction fragmentTransaction= null;
+                if (getFragmentManager() != null) {
+                    fragmentTransaction = getFragmentManager().beginTransaction()
+                            .replace(R.id.homeFrame,submitAssignment,"SubmitAssignment");
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+
 
             }
         });
